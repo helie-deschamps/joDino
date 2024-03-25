@@ -1,8 +1,68 @@
-
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>
+        .roue-crantee {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 9999;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .roue-icon {
+            color: #fff;
+        }
+
+        .fenetre-modale {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            display: none;
+        }
+
+        .fenetre-modale-content {
+            background-color: azure;
+        }
+
+        /* Style pour les boutons */
+        .bouton {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .bouton:hover {
+            background-color: #555;
+        }
+
+        /* Style pour l'image */
+        .mon-image {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+
+
     <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
     <script src="start.js"></script>
     <script src="bird.js"></script>
@@ -14,9 +74,45 @@
     <script src="ground.js"></script>
     <script src="game.js"></script>
     <script src="main.js"></script>
-  </head>
-  <body style="overflow-y: hidden; margin-left: 0; margin-top: 0; zoom: 0.75;">
+    <script>
+        // Fonction pour afficher la fenêtre options
+        function ouvrirFenetreModale() {
+            document.querySelector('.fenetre-modale').style.display = 'block';
+        }
+
+        // Fonction pour fermer la fenêtre options
+        function fermerFenetreModale() {
+            document.querySelector('.fenetre-modale').style.display = 'none';
+        }
+
+        // Fonction pour activer/muter le son
+        function toggleSon() {
+            //musique
+        }
+    </script>
+</head>
+<body style="overflow-y: hidden; margin-left: 0; margin-top: 0; zoom: 0.75;">
+    <!-- Menu options -->
+    <div class="roue-crantee" onclick="ouvrirFenetreModale()">
+        <span class="roue-icon">≡</span>
+    </div>
+    <!-- Fenêtre options -->
+    <div class="fenetre-modale">
+        <div class="fenetre-modale-content">
+            <h2>Options</h2>
+            <p>Touches :</p>
+            <img class="mon-image" src="New Piskel.png" alt="Description de l'image">
+
+        </div>
+        <div>
+          <!-- Bouton pour activer/muter le son -->
+          <button class="bouton" onclick="toggleSon()">Activer/Muter le son</button>
+        </div>
+        <div>
+          <button class="bouton" onclick="fermerFenetreModale()">Fermer</button>
+        </div>
+    </div>
     <main>
     </main>
-  </body>
+</body>
 </html>
