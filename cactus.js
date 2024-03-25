@@ -4,40 +4,22 @@ class Cactus{
 
         this.randomDistance = Math.floor(random (40,80));
         this.x = game.window_width + this.randomDistance;
-        this.type = Math.floor(random(6));
+        this.type = Math.floor(random(3));
         this.collisionBoxes=[];
+        console.log("rh")
 
-        if(this.type < 3){
-            this.h = 66;
-            this.y = 470;
-        }else{
-            this.h = 96;
-            this.y = 444;
-        }
         switch (this.type) {
             case 0:
-                this.w = 30;
-                this.img = game.sprite.get(228, 2, 17, 35);
-            break;
             case 1:
-                this.w = 64;
-                this.img = game.sprite.get(245, 2, 34, 35);
-            break;
             case 2:
-                this.w = 98;
-                this.img = game.sprite.get(279, 2, 51, 35);
-            break;
-            case 3:
-                this.w = 46;
-                this.img = game.sprite.get(332, 2, 25, 50);
-            break;
-            case 4:
-                this.w = 96;
-                this.img = game.sprite.get(357, 2, 50, 50);
-            break;
-            case 5:
-                this.w = 146;
-                this.img = game.sprite.get(407, 2, 75, 50);
+                // hauteur du sprite
+                this.h = 26;
+                // position y du sprite from top of the canvas
+                this.y = 120;
+                // largeur du sprite
+                this.w = 25;
+                // pixel en haut a gauche, en bas a gauche, en haut a droite, en bas a droite de le feuille de spite correspondant a l element
+                this.img = game.sprite.get(0, 5, 26, 26);
             break;
         }
         this.createCollisionBoxes(this.randomDistance-70);
