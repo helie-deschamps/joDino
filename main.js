@@ -5,7 +5,7 @@ var restartFromSpaceKeyEnabled = true;
 let img;
 
 function preload() {
-  this.img = loadImage("https://diegoal3mx.github.io/Dinosaur-Game-P5js/imgs/dinosaur-sprite.png");
+  this.img = loadImage("dinosaur-sprite_near.png");
   this.game.sprite = this.img;
 }
 
