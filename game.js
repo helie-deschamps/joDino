@@ -378,6 +378,9 @@ class Game {
     }
 
     getHighScore(){
+        if (localStorage.getItem("highScore") !== null) {
+            this.highScore = Number(localStorage.getItem("highScore"));
+        }
         return this.highScore;
     }
 

@@ -17,6 +17,7 @@ function setup(){
 
 function start(){
   this.game.load_game(width);
+  this.game.highScore = localStorage.getItem("highScore") || 0;
   loop();
 }
 

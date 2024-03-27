@@ -87,7 +87,9 @@ class Dinosaur {
         this.jumping = true;
     }
 
-    die(... enemy_height){ 
+    die(... enemy_height){
+        localStorage.setItem("highScore", game.highScore);
+
         this.living = false;
 
         if(game.night){
