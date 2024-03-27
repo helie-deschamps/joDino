@@ -12,7 +12,7 @@ class Cactus{
                 // hauteur du sprite
                 this.h = 26*5;
                 // position y du sprite from top of the canvas
-                this.y = 400;
+                this.y = 440;
                 // largeur du sprite
                 this.w = 26*5;
                 // pixel
@@ -25,13 +25,13 @@ class Cactus{
                 break;
             case 1: // haie haute
                 this.h = 31*5;
-                this.y = 400;
+                this.y = 420;
                 this.w = 25*5;
                 this.img = game.sprite.get(268, 6, 26, 31);
                 break;
             case 2: // haie double
                 this.h = 26*5;
-                this.y = 400;
+                this.y = 440;
                 this.w = 31*5;
                 this.img = game.sprite.get(305, 11, 31, 26);
             break;
