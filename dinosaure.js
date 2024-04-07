@@ -1,9 +1,9 @@
 class Dinosaur {
     constructor(){
         this.x = 200;
-        this.w = 80;
-        this.y = 450;
-        this.h = 86;
+        this.w = 120;
+        this.y = 420;
+        this.h = 146;
         this.last_jump_y = 0;
         this.img_index = 0;
         this.img_crouching_index = 0;
@@ -23,8 +23,8 @@ class Dinosaur {
         this.img_die_night;
         this.imgs = [];
         this.crouching_imgs = [];
-        this.xPositionOfCollisionBoxes = [2, 12, 12, 16, 20, 20, 37, 28, 39];
-        this.yPositionOfCollisionBoxes = [30, 42, 52, 60, 67, 72, 72, 30, 4];
+        this.xPositionOfCollisionBoxes = [40, 52, 52, 56, 60, 60, 77, 68, 79];
+        this.yPositionOfCollisionBoxes = [60, 72, 82, 90, 97, 102, 102, 60, 34];
         this.collisionBoxes = [];
         this.activeCollisionBoxes;
         this.crouchCollisionBoxes = [];
@@ -47,7 +47,7 @@ class Dinosaur {
             if(this.jump_stage>1){
                 this.jumping = false;
                 this.jump_stage = 0;
-                this.y = 450;
+                this.y = 420;
             }
         }
         else if(this.crouching){
@@ -77,7 +77,7 @@ class Dinosaur {
             if(this.jump_stage>1){
                 this.jumping = false;
                 this.jump_stage = 0;
-                this.y = 450;
+                this.y = 420;
                 game.started = true;
             }
         }
@@ -87,9 +87,7 @@ class Dinosaur {
         this.jumping = true;
     }
 
-    die(... enemy_height){
-        localStorage.setItem("highScore", game.highScore);
-
+    die(... enemy_height){ 
         this.living = false;
 
         if(game.night){
@@ -114,8 +112,8 @@ class Dinosaur {
         if(eh != null){
            this.y = eh-(this.h-5);
         }
-        this.w = 80;
-        this.h = 86;
+        this.w = 120;
+        this.h = 146;
         this.activeCollisionBoxes = this.collisionBoxes;
         this.updateXYCollisionBoxes();
         noLoop();
@@ -129,7 +127,7 @@ class Dinosaur {
            this.y = eh-(this.h-5);
         }
         else{
-            this.y = 450;
+            this.y = 420;
         }
 
         this.jumping = false;
@@ -139,14 +137,14 @@ class Dinosaur {
 
     crouch(){
         
-        if(this.y<=450 && !this.will_die && this.living){
+        if(this.y<=420 && !this.will_die && this.living){
             this.crouching = true;
             this.activeCollisionBoxes = this.crouchCollisionBoxes;
             this.y += 34;
             this.w = 110;
-            this.h = 52;
+            this.h = 156;
         }
-        else if (this.y<=450){
+        else if (this.y<=420){
             this.crouching = true;
         }
 
@@ -165,13 +163,13 @@ class Dinosaur {
 
     stop_crouch(){
     
-        if(this.y>450){
+        if(this.y>420){
             this.crouching = false;
             this.stop_jumping = false;
             this.activeCollisionBoxes = this.collisionBoxes;
             this.y -= 34;
-            this.w = 80;
-            this.h = 86;
+            this.w = 120;
+            this.h = 146;
         }
        
         if(this.living){
@@ -224,6 +222,4 @@ class Dinosaur {
     }
 
     isAlive(){
-        return this.living;
-    }
-}
+        return this.living
