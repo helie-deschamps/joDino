@@ -30,6 +30,20 @@ function restart(){
   start();
 }
 
+var checkGamepad = ()=> {
+  navigator.getGamepads()?.forEach( gamepad => {
+    if (gamepad) {
+      if (gamepad.buttons[0].pressed && !this.game.player.isAlive()) {
+        setTimeout(() => {
+          restart();
+        }, 200);
+      }
+      checkIfGamepadKeyIsPressed( gamepad )
+    }
+  })
+  requestAnimationFrame(checkGamepad)
+}
+requestAnimationFrame(checkGamepad)
 function draw(){
   checkIfKeyIsPressed();
   if(this.game.night){
@@ -74,6 +88,29 @@ function checkIfKeyIsPressed(){
       }
     }
   }
+}
+
+function checkIfGamepadKeyIsPressed( gamepad ){
+    if (gamepad.buttons[0].pressed) {
+      this.game.keyPressed("DOWN");
+    }
+    else {
+      this.game.keyReleased("DOWN");
+    }
+    if (gamepad.buttons[1].pressed) {
+      if (!this.game.player.isAlive() && this.restartFromSpaceKeyEnabled) {
+        setTimeout(() => {
+          restart();
+        }, 200);
+      }
+      else if (this.game.player.isAlive() && this.game.started) {
+        this.game.keyPressed("UP");
+        this.restartFromSpaceKeyEnabled = false;
+      }
+      else {
+        this.game.player.jump();
+      }
+    }
 }
 
 function keyPressed(){
