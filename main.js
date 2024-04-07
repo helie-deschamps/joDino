@@ -25,9 +25,6 @@ function restart(){
   let tempScore = this.game.getHighScore();
   let tempDebug = this.game.debug;
   this.game = new Game(true, tempDebug);
-  if (this.game.highScore < tempScore) {
-    this.game.highScore = tempScore;
-  }
   this.game.sprite = this.img;
   start();
 }

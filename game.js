@@ -78,7 +78,7 @@ class Game {
             text(Math.floor(this.score),width/2+150,50);
 
             if(this.highScore < this.score){
-                this.highScore = Math.floor(this.score);
+                localStorage.setItem("highScore", ( this.highScore = Math.floor(this.score) ) + "");
             }
 
             text("High Score",width/2+280,50);
