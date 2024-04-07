@@ -17,7 +17,7 @@ function setup(){
 
 function start(){
   this.game.load_game(width);
-  this.game.highScore = localStorage.getItem("highScore") || 0;
+  this.game.highScore = this.game.getHighScore();
   loop();
 }
 
@@ -25,7 +25,9 @@ function restart(){
   let tempScore = this.game.getHighScore();
   let tempDebug = this.game.debug;
   this.game = new Game(true, tempDebug);
-  this.game.highScore = tempScore;
+  if (this.game.highScore < tempScore) {
+    this.game.highScore = tempScore;
+  }
   this.game.sprite = this.img;
   start();
 }

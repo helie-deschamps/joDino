@@ -97,7 +97,7 @@ class Game {
             this.player.doInitialJump();
             textSize(32);
             fill(32, 33, 36);
-            text("Presiona la barra espaciadora para jugar",205,585);
+            text("Barre d'espace ou bouton B d'une manette de jeu pour jouer.",205,585);
         }
 
         if(this.fpsVisible){
