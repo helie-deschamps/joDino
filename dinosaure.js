@@ -141,8 +141,8 @@ class Dinosaur {
             this.crouching = true;
             this.activeCollisionBoxes = this.crouchCollisionBoxes;
             this.y += 34;
-            this.w = 110;
-            this.h = 156;
+            this.w = 140;
+            this.h = 126;
         }
         else if (this.y<=420){
             this.crouching = true;
@@ -222,4 +222,6 @@ class Dinosaur {
     }
 
     isAlive(){
-        return this.living
+        return this.living;
+    }
+}
